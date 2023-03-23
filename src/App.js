@@ -8,7 +8,7 @@ class App extends Component {
     super();
 
     this.state = {
-      result: "",
+      result: ""
     };
   }
 
@@ -27,7 +27,7 @@ class App extends Component {
   };
 
   calculate = () => {
-    var checkResult = "";
+    var checkResult = '';
     if (this.state.result.includes("--")) {
       checkResult = this.state.result.replace("--", "+");
     } else {
@@ -36,6 +36,7 @@ class App extends Component {
 
     try {
       this.setState({
+        // eslint-disable-next-line
         result: (eval(checkResult) || "") + "",
       });
     } catch (e) {
@@ -62,7 +63,7 @@ class App extends Component {
       <div>
         <div className="calculator-body">
           <h1>Simple React Calculator</h1>
-          <ResultComponent onClick={this.onClick} />
+          <ResultComponent result={this.state.result} />
           <KeyPadComponent onClick={this.onClick} />
         </div>
       </div>
